@@ -5,4 +5,16 @@ class window.App extends Backbone.Model
     @set 'deck', deck = new Deck()
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
-    @get('playerHand').on 'changePlayer', @get('dealerHand').dealerTurn
+
+    #Listen for player stand, and change to the dealer
+    @get('playerHand').on 'changePlayer', =>
+      @get('dealerHand').dealerTurn()
+
+    @get('dealerHand').on 'gameOver', =>
+      console.log @get('playerHand').scores()[0]
+      console.log @get('dealerHand').scores()[0]
+
+
+
+
+
