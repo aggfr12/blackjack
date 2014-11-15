@@ -31,3 +31,8 @@ class window.App extends Backbone.Model
       console.log @get('playerHand').scores()[0]
       console.log @get('dealerHand').scores()[0]
       @reset()
+
+    @get('playerHand').on 'gameOver', =>
+      console.log @get('playerHand').scores()[0]
+      console.log @get('dealerHand').scores()[0]
+      @reset()
