@@ -4,26 +4,26 @@ class window.Hand extends Backbone.Collection
   initialize: (array, @deck, @isDealer) ->
   hit: ->
     @add(@deck.pop())
+    if @scores()[0] > 21
+      @endGame()
 
   stand: ->
     @trigger('changePlayer', @)
 
 
   dealerTurn: ->
-    #dealer hits if score less than 17
-      #stands if >=17
-      #either bust() or endGame()
     if @scores()[0] < 17
       @hit()
       @dealerTurn()
     else
       @endGame()
 
-
   endGame: ->
-    @at(0).flip()
+    #console.log @isDealer
+    if @isDealer
+      @at(0).flip()
     @trigger('gameOver')
-    #alert 'game over'
+    alert 'game over'
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1

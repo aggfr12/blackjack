@@ -13,8 +13,12 @@ class window.App extends Backbone.Model
     @get('dealerHand').on 'gameOver', =>
       console.log @get('playerHand').scores()[0]
       console.log @get('dealerHand').scores()[0]
+      @reset()
 
 
-
-
+  reset: ->
+    console.log 'fired'
+    # deck = @get('deck')
+    # @set(@get('playerHand'), deck.dealPlayer())
+    # @set 'dealerHand', deck.dealDealer()
 
