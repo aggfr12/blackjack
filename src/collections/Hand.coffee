@@ -18,12 +18,10 @@ class window.Hand extends Backbone.Collection
       @endGame()
 
   endGame: ->
-    console.log @
-
     if @isDealer
       @at(0).flip()
+
     @trigger('gameOver')
-    console.log 'game over'
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1

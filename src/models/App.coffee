@@ -4,6 +4,8 @@ class window.App extends Backbone.Model
   initialize: ->
     @set 'deck', deck = new Deck()
     @setItUp()
+
+    # @gameOverState()
     # @set 'playerHand', deck.dealPlayer()
     # @set 'dealerHand', deck.dealDealer()
 
@@ -20,6 +22,21 @@ class window.App extends Backbone.Model
   reset: ->
     @setItUp()
 
+  # gameOverState: ->
+  #   @get('dealerHand').on 'gameOver', =>
+  #     console.log @get('playerHand').scores()[0]
+  #     console.log @get('dealerHand').scores()[0]
+  #     @reset()
+
+  #   @get('playerHand').on 'gameOver', =>
+  #     console.log @get('playerHand').scores()[0]
+  #     console.log @get('dealerHand').scores()[0]
+  #     @reset()
+
+  #     @setItUp()
+
+
+
   setItUp: ->
 
     @set 'playerHand', @get('deck').dealPlayer()
@@ -29,13 +46,14 @@ class window.App extends Backbone.Model
       @get('dealerHand').dealerTurn()
 
     @get('dealerHand').on 'gameOver', =>
-      console.log @get('playerHand').scores()[0]
-      console.log @get('dealerHand').scores()[0]
-      @reset()
+      # console.log @get('playerHand').scores()[0]
+      # console.log @get('dealerHand').scores()[0]
+      #@reset()
+      @trigger('gameOverView')
 
     @get('playerHand').on 'gameOver', =>
-      console.log @get('playerHand').scores()[0]
-      console.log @get('dealerHand').scores()[0]
+      # console.log @get('playerHand').scores()[0]
+      # console.log @get('dealerHand').scores()[0]
       @reset()
 
     @trigger('setUpNewHand')

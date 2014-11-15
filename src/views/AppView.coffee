@@ -1,10 +1,15 @@
 class window.AppView extends Backbone.View
   template: _.template '
-    <button class="hit-button">Hit</button>
-    <button class="stand-button">Stand</button>
-    <button class="reset-button">Reset</button>
-    <div class="player-hand-container"></div>
     <div class="dealer-hand-container"></div>
+
+    <div class="player-wrapper">
+      <div class="player-hand-container"></div>
+      <div class="player-controls">
+        <button class="hit-button">Hit</button>
+        <button class="stand-button">Stand</button>
+        <button class="reset-button">Reset</button>
+      </div>
+    </div>
   '
 
   initialize: ->
@@ -14,12 +19,18 @@ class window.AppView extends Backbone.View
       console.log('render view')
       me.render()
 
+    @model.on 'gameOverView', =>
+      console.log('game over view')
+      $('.game-over').fadeIn();
+      me.render()
+
 
 
   events:
     'click .hit-button': -> @model.get('playerHand').hit()
     'click .stand-button': -> @model.get('playerHand').stand()
     'click .reset-button': ->
+      $('.game-over').fadeOut();
       @model.reset()
       @render()
 
