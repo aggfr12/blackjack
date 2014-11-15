@@ -10,7 +10,6 @@ class window.Hand extends Backbone.Collection
   stand: ->
     @trigger('changePlayer', @)
 
-
   dealerTurn: ->
     if @scores()[0] < 17
       @hit()
@@ -19,11 +18,12 @@ class window.Hand extends Backbone.Collection
       @endGame()
 
   endGame: ->
-    #console.log @isDealer
+    console.log @
+
     if @isDealer
       @at(0).flip()
     @trigger('gameOver')
-    alert 'game over'
+    console.log 'game over'
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
