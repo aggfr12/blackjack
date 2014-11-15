@@ -2,9 +2,21 @@ class window.Hand extends Backbone.Collection
   model: Card
 
   initialize: (array, @deck, @isDealer) ->
-
   hit: ->
     @add(@deck.pop())
+    console.log @deck.length
+
+  stand: ->
+    console.log 'player stands'
+    @trigger('changePlayer', @)
+
+
+  dealerTurn: ->
+    #dealer hits if score less than 17
+      #stands if >=17
+      #either bust() or endGame()
+    console.log 'dealer turn fired'
+
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
