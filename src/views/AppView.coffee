@@ -9,6 +9,12 @@ class window.AppView extends Backbone.View
 
   initialize: ->
     @render()
+    me = @
+    @model.on 'setUpNewHand', =>
+      console.log('render view')
+      me.render()
+
+
 
   events:
     'click .hit-button': -> @model.get('playerHand').hit()
@@ -16,9 +22,6 @@ class window.AppView extends Backbone.View
     'click .reset-button': ->
       @model.reset()
       @render()
-
-
-
 
   render: ->
     @$el.children().detach()

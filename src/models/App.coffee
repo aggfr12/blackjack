@@ -21,6 +21,7 @@ class window.App extends Backbone.Model
     @setItUp()
 
   setItUp: ->
+
     @set 'playerHand', @get('deck').dealPlayer()
     @set 'dealerHand', @get('deck').dealDealer()
 
@@ -36,3 +37,6 @@ class window.App extends Backbone.Model
       console.log @get('playerHand').scores()[0]
       console.log @get('dealerHand').scores()[0]
       @reset()
+
+    @trigger('setUpNewHand')
+
