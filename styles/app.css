@@ -176,6 +176,7 @@ header{
   height: 98px;
   margin-right: 20px;
   background: transparent;
+  z-index: 1000;
 }
 
 
@@ -278,6 +279,10 @@ header{
   border-right: groove 4px #C0C0C0;
   box-sizing: border-box;
 }
+
+  .score-bar h2{
+    color: #000;
+  }
 
 .game-over{
   display: none;

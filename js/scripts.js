@@ -17,6 +17,11 @@ $(document).ready(function(){
 $('.reset-button').click(function(){
 
 
+  $('h2').each(function(i, val){
+    $('.score-bar').css('height', '100px');
+    $('.score-bar').append(val);
+  });
+
   $('.card').each(function(i, card){
 
     console.log(card);
@@ -44,7 +49,7 @@ function addCardStream(){
         topBorder = true;
       }
 
-      if(vtop>=winHeight-125){
+      if(vtop>=winHeight-90){
         topBorder = false;
       }
 
