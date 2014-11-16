@@ -4,12 +4,16 @@ class window.AppView extends Backbone.View
 
     <div class="player-wrapper">
       <div class="player-hand-container"></div>
+
       <div class="player-controls">
         <button class="hit-button">Hit</button>
         <button class="stand-button">Stand</button>
         <button class="reset-button">Reset</button>
       </div>
+
     </div>
+
+
   '
 
   initialize: ->

@@ -96,6 +96,12 @@ h1{
 
 }
 
+h2{
+  color: #fff;
+  margin: 0 0 14px 0 ;
+  font-size: .875em;
+
+}
 
 
 /* Layout */
@@ -135,17 +141,44 @@ header{
   .player-wrapper
   {
     margin: 100px 0 0 150px ;
+    position: relative;
   }
 
 
+    .player-controls{
+      position: absolute;
+      top: -5;
+      left: 100px;
+      z-index: 1000;
+    }
 
-.card {
+    button{
+      background: grey;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+      color: #fff;
+    }
+
+  /*Dealer*/
+
+  .dealer-hand-container{
+    margin: 40px 0 0 70px;
+  }
+
+
+     .card:first-of-type{
+      margin: 0 20px 0 20px;
+    }
+
+
+.card, .pira {
   float: left;
   width: 72px;
   height: 98px;
   margin-right: 20px;
   background: transparent;
 }
+
+
 
   .card div{
     width: 100%;
@@ -157,6 +190,15 @@ header{
     position: relative;
     background-image: url('../img/card-fronts.png');
   }
+
+    .pira{
+    background: #fff;
+    border: 1px solid black;
+    background: url('../img/piraCard.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
 
   .card .clubs{
   }
@@ -214,11 +256,9 @@ header{
 }
 
 
-
-
-
-.covered {
-  background-color: black;
+.card.covered div {
+  background-image: url('../img/card-palm-bg.png');
+  background-position: 0 0;
 }
 
 .hand {
@@ -242,13 +282,18 @@ header{
 .game-over{
   display: none;
   position: absolute;
-  background: #fff;
   top: 0;
   left: 0;
-  width: 50%;
-  height: 50%;
-  margin: 5% 25%;
-  border: 1px solid #000;
+  width: 100%;
+  height: 100%;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.game-over h1{
+  margin: 45% 0 0 0;
+  font-size: 8em;
+  color: #000;
 }
 
 

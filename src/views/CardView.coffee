@@ -1,7 +1,7 @@
 class window.CardView extends Backbone.View
   className: 'card'
 
-  template: _.template '<div class="<%= suitName %> num-<%= rankName %>"><%= rankName %> <%= suitName %></div>'
+  template: _.template '<div class="<%= suitName %> num-<%= rankName %>"></div>'
 
   initialize: -> @render()
 

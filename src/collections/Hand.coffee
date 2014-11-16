@@ -21,6 +21,8 @@ class window.Hand extends Backbone.Collection
     if @isDealer
       @at(0).flip()
 
+    $('.reset-button').trigger('click')
+
     @trigger('gameOver')
 
   hasAce: -> @reduce (memo, card) ->
